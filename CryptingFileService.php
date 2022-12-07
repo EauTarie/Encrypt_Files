@@ -10,7 +10,7 @@ class CryptingFilesService
      * @param $dest     |   Path of the ENCRYPTED FILE to CREATED
      * @param $key      |   Encryption KEY
      */
-    public function encryptFile($source, $dest, $key)
+    public function encryptFile($source, $dest, $key) // METHOD to ENCRYPT FILES when UPLOADED
     {
         $cipher = 'aes-256-cbc';
         $ivLenght = openssl_cipher_iv_length($cipher);
@@ -33,8 +33,12 @@ class CryptingFilesService
         fclose($fpDest);
     }
 
-
-    public function decryptFile($source, $dest, $key)
+    /**
+     * @param $source   |   Path of the UNENCRYPTED FILE
+     * @param $dest     |   Path of the ENCRYPTED FILE to CREATED
+     * @param $key      |   Encryption KEY
+     */
+    public function decryptFile($source, $dest, $key) // METHOD to DECRYPT FILES when UPLOADED
     {
         $cipher = 'aes-256-cbc';
         $ivLenght = openssl_cipher_iv_length($cipher);
